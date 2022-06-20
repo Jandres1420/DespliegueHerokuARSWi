@@ -73,7 +73,16 @@ public class HttpServerController {
                         System.out.println(e);
                     }
                 }
+
             }
+            System.out.println("File type: " +fileType);
+            System.out.println("File type: " +fileType);
+            System.out.println("File type: " +fileType);
+
+            if(fileType==null){
+                emptyIndex();
+            }
+
         }catch (Exception e){
             error404(stringBuffer);
             System.out.println(e);
@@ -92,6 +101,18 @@ public class HttpServerController {
         outputLine += "Content-Type: text/" + fileType + "\r\n";
         outputLine += "\r\n";
         outputLine += new String(Files.readAllBytes(Paths.get("resources" + file)), StandardCharsets.UTF_8);
+        out.println(outputLine);
+        out.close();
+        clientSocket.close();
+    }
+
+    public void emptyIndex() throws IOException {
+        out = new PrintWriter(clientSocket.getOutputStream(), true);
+        outputLine = "HTTP/1.1 200 OK\r\n";
+        outputLine += "Content-Type: text/" + "html" + "\r\n";
+        outputLine += "\r\n";
+        outputLine += "<body>";
+        outputLine += "HOLA ESTAS EN UNA ENTRADA VACIA";
         out.println(outputLine);
         out.close();
         clientSocket.close();
