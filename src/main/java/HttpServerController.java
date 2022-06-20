@@ -53,11 +53,6 @@ public class HttpServerController {
             for (String l : tipoTexto) {
                 if (file.contains(l)) {
                     fileType = file.split("\\.")[1];
-                    System.out.println("ACAAAA");
-                    System.out.println("ACAAAA");
-                    System.out.println("ACAAAA");
-                    System.out.println("ACAAAA");
-                    System.out.println(fileType);
                     try {
                         creatingText(clientSocket);
                     } catch (Exception e) {
