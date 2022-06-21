@@ -17,3 +17,5 @@ Para leer la imagen /public/img/img.png
 ### Error
 Error
 ![](/img/error.png)
+### Java Script
+![](/img/javascript.png)
