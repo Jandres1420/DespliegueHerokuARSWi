@@ -75,16 +75,12 @@ public class HttpServerController {
                 }
 
             }
-            System.out.println("File type: " +fileType);
-            System.out.println("File type: " +fileType);
-            System.out.println("File type: " +fileType);
-
-            if(fileType==null){
+             if(fileType==null){
                 emptyIndex();
             }
 
         }catch (Exception e){
-            error404(stringBuffer);
+            stringBuffer = error404(stringBuffer);
             System.out.println(e);
         }
 
@@ -106,6 +102,10 @@ public class HttpServerController {
         clientSocket.close();
     }
 
+    /**
+     * Empty index
+     * @throws IOException
+     */
     public void emptyIndex() throws IOException {
         out = new PrintWriter(clientSocket.getOutputStream(), true);
         outputLine = "HTTP/1.1 200 OK\r\n";
